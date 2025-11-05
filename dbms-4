@@ -1,0 +1,24 @@
+CREATE DATABASE SchoolDB;
+USE SchoolDB;
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Class VARCHAR(10)
+);
+CREATE TABLE Marks (
+    StudentID INT,
+    Subject VARCHAR(30),
+    Marks INT,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+INSERT INTO Students VALUES (1, 'Ravi', '10A');
+INSERT INTO Students VALUES (2, 'Sita', '10B');
+INSERT INTO Students VALUES (3, 'Kiran', '10A');
+INSERT INTO Marks VALUES (1, 'Math', 85);
+INSERT INTO Marks VALUES (1, 'Science', 90);
+INSERT INTO Marks VALUES (2, 'Math', 78);
+INSERT INTO Marks VALUES (3, 'Science', 88);
+SELECT Students.Name, Students.Class, Marks.Subject, Marks.Marks
+FROM Students
+INNER JOIN Marks
+ON Students.StudentID = Marks.StudentID;
