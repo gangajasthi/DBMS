@@ -1,0 +1,24 @@
+CREATE DATABASE SchoolDB;
+USE SchoolDB;
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT
+);
+INSERT INTO Students VALUES (1, 'Ravi', 18);
+INSERT INTO Students VALUES (2, 'Sita', 19);
+INSERT INTO Students VALUES (3, 'Kiran', 20);
+INSERT INTO Students VALUES (4, 'Meena', 18);
+INSERT INTO Students VALUES (5, 'Rohit', 21);
+INSERT INTO Students VALUES (6, 'Priya', 20);
+SELECT * FROM Students;
+SELECT COUNT(*) AS Total_Students FROM Students;
+SELECT Age, COUNT(*) AS Number_of_Students
+FROM Students
+GROUP BY Age;
+SELECT COUNT(*) AS Students_Above_18
+FROM Students
+WHERE Age > 18;
+SELECT COUNT(*) AS Students_Between_18_20
+FROM Students
+WHERE Age BETWEEN 18 AND 20;
