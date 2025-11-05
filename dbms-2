@@ -1,0 +1,19 @@
+CREATE DATABASE CollegeDB;
+USE CollegeDB;
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Department VARCHAR(30)
+);
+INSERT INTO Students VALUES (1, 'Ravi', 20, 'CSE');
+INSERT INTO Students VALUES (2, 'Sita', 19, 'ECE');
+INSERT INTO Students VALUES (3, 'Kiran', 20, 'CSE');
+INSERT INTO Students VALUES (4, 'Meena', 21, 'IT');
+INSERT INTO Students VALUES (5, 'Rohit', 22, 'ECE');
+INSERT INTO Students VALUES (6, 'Priya', 20, 'CSE');
+SELECT * FROM Students;
+SELECT COUNT(*) AS Total_Students FROM Students;
+SELECT Department, COUNT(*) AS Number_of_Students
+FROM Students
+GROUP BY Department;
