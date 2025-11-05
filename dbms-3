@@ -1,0 +1,27 @@
+CREATE DATABASE CollegeDB;
+USE CollegeDB;
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Department VARCHAR(30)
+);
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(50),
+    Department VARCHAR(30)
+);
+INSERT INTO Students VALUES (1, 'Ravi', 'CSE');
+INSERT INTO Students VALUES (2, 'Sita', 'ECE');
+INSERT INTO Students VALUES (3, 'Kiran', 'CSE');
+INSERT INTO Students VALUES (4, 'Meena', 'IT');
+INSERT INTO Courses VALUES (101, 'Database Systems', 'CSE');
+INSERT INTO Courses VALUES (102, 'Digital Electronics', 'ECE');
+INSERT INTO Courses VALUES (103, 'Networks', 'IT');
+SELECT Students.Name, Students.Department, Courses.CourseName
+FROM Students
+INNER JOIN Courses
+ON Students.Department = Courses.Department;
+SELECT Students.Name, Courses.CourseName
+FROM Students
+LEFT JOIN Courses
+ON Students.Department = Courses.Department;
