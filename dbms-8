@@ -1,0 +1,21 @@
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+INSERT INTO Employee VALUES
+(1, 'Ravi', 'HR', 25000),
+(2, 'Sita', 'IT', 40000),
+(3, 'Kiran', 'Sales', 30000),
+(4, 'Priya', 'IT', 45000),
+(5, 'Meena', 'Finance', 35000);
+
+UPDATE Employee SET Salary = 50000 WHERE EmpID = 2;
+DELETE FROM Employee WHERE EmpID = 5;
+
+SELECT * FROM Employee ORDER BY Salary DESC;
