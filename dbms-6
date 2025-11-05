@@ -1,0 +1,30 @@
+CREATE DATABASE SchoolDB;
+USE SchoolDB;
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Class VARCHAR(10)
+);
+CREATE TABLE Marks (
+    MarkID INT PRIMARY KEY AUTO_INCREMENT,
+    StudentID INT,
+    Subject VARCHAR(30),
+    Marks INT,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+INSERT INTO Students VALUES (1, 'Ravi', '10A');
+INSERT INTO Students VALUES (2, 'Sita', '10B');
+INSERT INTO Students VALUES (3, 'Kiran', '10A');
+INSERT INTO Students VALUES (4, 'Meena', '10C');
+INSERT INTO Students VALUES (5, 'Rohit', '10B');
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (1, 'Math', 85);
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (1, 'Science', 90);
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (2, 'Math', 78);
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (3, 'Science', 88);
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (3, 'Math', 95);
+INSERT INTO Marks (StudentID, Subject, Marks) VALUES (5, 'Science', 70);
+SELECT * FROM Students;
+SELECT * FROM Marks;
+SELECT Subject, MAX(Marks) AS Highest_Marks
+FROM Marks
+GROUP BY Subject;
